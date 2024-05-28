@@ -11,13 +11,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
         let url = `https://geo.ipify.org/api/v1?apiKey=at_N7oX6kM2kWRfmFPIS5gDCQrCeOSqE`;
         let ipRegex = new RegExp(/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$|^(?:[A-Fa-f0-9]{1,4}:){7}[A-Fa-f0-9]{1,4}$/);
         let domainRegex = new RegExp(/^(?:[a-z]+\.)?[a-z]+\.[a-z]+$/);
+        ipOutput.textContent = "";
+        isp.textContent = "";
+        timezone.textContent = "";
+        locationInfo.textContent = "";
         if(input === "" || input === null || input === undefined) {
            url += `&ipAddress=`
         } else if(ipRegex.test(input)) {
-            console.log('ip')
             url += `&ipAddress=${encodeURIComponent(input)}`;
         } else if(domainRegex.test(input)){
-            console.log('domain')
             url += `&domain=${encodeURIComponent(input)}`;
         } else {
             alert('Invalid input');
@@ -25,8 +27,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
-                console.log(data.ip);
                 ipOutput.textContent= `${data.ip}`;
                 ipInput.value = `${data.ip}`;
                 isp.textContent = `${data.isp}`;
@@ -37,15 +37,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
     apiCall(input);
     submitBtn.addEventListener('click', (event) => {
-        console.log('clicked')
-        ipOutput.textContent = "";
-        isp.textContent = "";
-        timezone.textContent = "";
-        locationInfo.textContent = "";
         if(event.target === submitBtn) {
             input = ipInput.value;
             apiCall(input);
-            console.log(input);
         }
     });
 
