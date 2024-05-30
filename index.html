@@ -23,22 +23,30 @@
   <header>
     <h1>IP Address Tracker</h1>
     <div class="input-container">
-      <input type="text" id="ipInput">
+      <input type="text" id="ipInput" placeholder="Seach for any IP adress or domain">
       <button id="submit-btn"><img src="./images/icon-arrow.svg" alt="arrow icon"></button>
     </div>
   </header>
   <main>
     <section class="search-results">
       <div class="result">
-        <h2>IP ADDRESS</h2>
-        <p id="ipOutput"></p>
-        <h2>LOCATION</h2>
-        <p id="location"></p>
-        <h2>TIMEZONE</h2>
-        <p id="timezone"></p>
-        <h2>ISP</h2>
-        <p id="isp"></p>
+        <div class="result-item">
+          <h2>IP ADDRESS</h2>
+          <p id="ipOutput"></p>
         </div>
+        <div class="result-item border">
+          <h2>LOCATION</h2>
+          <p id="location"></p>
+        </div>
+        <div class="result-item border">
+          <h2>TIMEZONE</h2>
+          <p id="timezone"></p>
+        </div>
+        <div class="result-item border">
+          <h2>ISP</h2>
+          <p id="isp"></p>
+        </div>
+      </div>
       <div id="map"></div>
     </section>
     
