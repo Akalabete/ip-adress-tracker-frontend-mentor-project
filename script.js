@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
     apiCall(input);
     submitBtn.addEventListener('click', (event) => {
+        event.preventDefault();
         if(event.target === submitBtn) {
             input = ipInput.value;
             apiCall(input);
