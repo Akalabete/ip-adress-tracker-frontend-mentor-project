@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             .then(data => {
                 console.log(data);
                 ipOutput.textContent= `${data.ip}`;
-                ipInput.value = `${data.ip}`;
                 isp.textContent = `${data.isp}`;
                 timezone.textContent = `UTC${data.location.timezone}`;
                 locationInfo.textContent = `${data.location.city}, ${data.location.region} ${data.location.postalCode}`;
